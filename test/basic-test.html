@@ -54,11 +54,11 @@ let d3 = SNEAKYIMP.Crypt.decryptByteArray(myKey.uint8, e3);
 console.log("d3:");
 console.log(d3);
 
-let myEnc = new SNEAKYIMP.Crypt(myKey.uint16);
-myEnc = new SNEAKYIMP.Crypt(new Uint16Array([0, 0, 0]));
-console.log(myEnc);
+const myKey16 = new Uint16Array([49529,26319,28702,58547,36876,41785,62253,14050,21424,3489,45614,32839,3687,56797,25509,54343]);
 
-let v4 = "a";
+let myEnc = new SNEAKYIMP.Crypt(myKey16);
+
+let v4 = "Here is a secret message";
 console.log("v4");
 console.log(v4);
 let e4 = myEnc.e(v4);

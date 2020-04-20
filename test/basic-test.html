@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Basic Crypt Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script charset="utf-8" src="js/crypt-test-util.js"></script>
+<script charset="utf-8" src="../src/sneakyimp-util.js"></script>
+<script charset="utf-8" src="../src/sneakyimp-base64.js"></script>
+<script charset="utf-8" src="../src/sneakyimp-crypt.js"></script>
+<script charset="utf-8" src="js/key.js"></script>
+<script charset="utf-8" src="js/data/test-data.js"></script>
+<script charset="utf-8">
+
+console.log("myKey");
+console.log(myKey);
+
+v1 = new Uint8Array([97, 98, 99, 232]);
+console.log("v1");
+console.log(v1);
+
+let e1 = SNEAKYIMP.Crypt.encryptByteArray(myKey.uint8, v1);
+console.log("e1:");
+console.log(e1);
+
+let d1 = SNEAKYIMP.Crypt.decryptByteArray(myKey.uint8, e1);
+console.log("d1:");
+console.log(d1);
+
+let v2 = "ÀÈÌÒÙ🎯";
+console.log("v2");
+console.log(v2);
+
+let e2 = SNEAKYIMP.Crypt.encryptString(myKey.uint16, v2);
+console.log("e2:");
+console.log(e2);
+
+let d2 = SNEAKYIMP.Crypt.decryptString(myKey.uint16, e2);
+console.log("d2:");
+console.log(d2);
+
+
+v3 = new Uint8Array([]);
+console.log("v3");
+console.log(v3);
+
+let e3 = SNEAKYIMP.Crypt.encryptByteArray(myKey.uint8, v3);
+console.log("e3:");
+console.log(e3);
+
+let d3 = SNEAKYIMP.Crypt.decryptByteArray(myKey.uint8, e3);
+console.log("d3:");
+console.log(d3);
+
+let myEnc = new SNEAKYIMP.Crypt(myKey.uint16);
+myEnc = new SNEAKYIMP.Crypt(new Uint16Array([0, 0, 0]));
+console.log(myEnc);
+
+let v4 = "a";
+console.log("v4");
+console.log(v4);
+let e4 = myEnc.e(v4);
+console.log("e4:");
+console.log(e4);
+let d4 = myEnc.d(e4);
+console.log("d4:");
+console.log(d4);
+
+
+
+throw "done";
+</script>
+</body>
+</html>

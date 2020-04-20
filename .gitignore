@@ -1,0 +1,6 @@
+# ignore IDE files
+.project
+.settings
+
+
+test/js/data
